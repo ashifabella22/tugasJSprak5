@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Web Chat</title>
+	<style>
+	body {
+		background-color: beige;
+	}
+	</style>	
+	</head>
+
+	<body>
+		<div>
+			<!-- Header Form -->
+			<div>
+  				<div>
+    				<h2 align="center">WEB CHAT</h2>
+    				<div class="underline-title"></div>
+  				</div>
+			</div>
+				<div>
+    			<div>
+				<center>
+					<p class="welcome"><b>Welcome!</b></p>
+        			<div style="clear:both"></div>
+				</div>
+				<center>
+     			<form name="nama" action="">
+        			<input name="namauser" type="text" id="namauser"  placeholder="Nama Anda" />
+    			</form>
+				<br>
+				<br>
+				<center>
+    			<div id="chatbox"></div>
+				
+					<input name="usermsg" type="text" id="usermsg" placeholder="Pesan" />
+					<br>
+					<br>
+        			<input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+			    </center>
+					<script>
+						var chatbox = document.getElementById("chatbox");
+						var usermsg = document.getElementById("usermsg");
+						var namauser = document.getElementById("namauser");
+						var submitmsg = document.getElementById("submitmsg");
+						
+						submitmsg.addEventListener("click", function(){
+							var newMessage = document.createElement("li");
+							newMessage.innerHTML = namauser.value + " : " + usermsg.value;
+							chatbox.appendChild(newMessage);
+							usermsg.value = "";
+						});
+				
+					</script>	
+			</div>
+		
+			<!-- Form Chat -->
+		</div>
+	</body>
+</html>

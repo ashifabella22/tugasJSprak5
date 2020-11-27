@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <script>
+            function validasi() {
+                var user = document.getElementById("username").value;
+                var pass = document.getElementById("password").value;
+                if (user == "" && pass == "") {
+                    alert('Username / Password Tidak Boleh Kosong');
+                    return false;
+                }
+                else if (pass.length < 4){
+                    alert('Password Kurang Dari 4');
+                    return false;
+                }
+                else if (user == "admin" && pass == "admin"){
+                    alert('Anda Berhasil Login');
+                    window.location = "home.html";
+                    return false;
+                }else{
+                    alert("Username / Password Anda Salah, Coba Lagi");
+                }
+            }
+        </script>
+    	<style>
+            body {
+                background-color: #c771b4;
+            }
+        </style>
+	</head>
+
+	<body>
+		<div class="kerangka">
+			<div class="header">
+				<h2>LOGIN</h2>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="form">
+				<form method="request">
+					<input type="text" placeholder="Username" class="form_login" name="username" id="username" required />
+					<input type="password" placeholder="Password" class="form_login" name="password" id="password" required />
+					<input type="submit" class="tombol_login" onClick="return validasi()" value="LOGIN">
+				</form>
+				<div class="note">
+					<h6>INFO LOGIN</h6>
+				
+					<table class="tabel">
+						<tr>
+							<td width="20%">Username</td>
+							<td width="10%">:</td>
+							<td width="30%">admin</td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td>:</td>
+							<td>admin</td>
+						</tr>
+					</table>
+					
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>

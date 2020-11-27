@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script>
+            function logout() {
+                var yakin = confirm("Apakah Kamu Yakin Ingin Keluar?");
+                if (yakin) {
+                    document.write("Anda Berhasil Keluar");
+                    window.location = "index.html";
+                } else {
+                    document.write("Baiklah, Stay Here Please :)");
+                    window.location = "home.html"
+                }
+            }
+        </script>
+		<style>
+            body {
+                background-color: #f3db8d;
+            }
+        </style>	
+	</head>
+
+	<body>
+		<div class="kerangka">
+			<div class="header">
+				<h2 class="h2home">WELCOME</h2>
+			</div>
+			<br>
+			<div class="gmbr">
+				<img src="IMG/PP.jpg">
+			</div>
+			<br>
+			<div class="form">
+				<form method="request">
+					<input type="submit" class="tombol_login" onClick="return logout()" value="LOGOUT">
+				</form>
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Form Validation</title>
+        <script>
+        // Maxlength
+        function maxlength(evt) {
+            var panjangnama = document.getElementById("name").value;
+            if (panjangnama.length >= 30  ){
+		    window.alert("Max Length 30");
+		    return false;
+	        }
+        }
+
+        // Anka Only
+        function angka(e) {
+            var max = document.getElementById("jmltiket").value;
+            if (!/^[0-9]+$/.test(e.value)) {
+	        window.alert("Hanya Boleh Angka");
+            e.value = e.value.substring(0,e.value.length-1);
+	        max.length = 2;
+            }
+        }
+
+        // Validasi Input
+        function validasi() {
+            var nama = document.getElementById("name").value;
+	        var email = document.getElementById("email").value;
+	        var jam = document.getElementById("jam").value;
+	        var tujuan = document.getElementById("tujuan").value;
+	        var tiket = document.getElementById("jmltiket").value;
+	
+	        if (nama && email && jam  && tujuan  && tiket ) {
+                document.getElementById("chatbox").innerHTML= "Name : " + nama + "<br>" + "Email : " + email + "<br>" + "Departure Time : " + jam + "<br>" + "Destination : " +tujuan + "<br>" + "Numbers of Ticket : " + tiket + "<br><br>" + "Enjoy Your Flight!";
+		        return false;
+	        }else{
+                alert("Data Belum Lengkap, Harap Isi dengan Benar");
+	        }	
+        }
+        </script>
+    <style>
+    body {
+        background-color: #92a8d1;
+    }
+    </style>
+	</head>
+
+	<body>
+		<!-- Kerangka -->
+		<div>
+			<!-- Header Form -->
+			<div>
+  				<div>
+    				<h2 align="center">CUSTOMER</h2>
+  				</div>
+			</div>
+			<br>
+			<!-- Form Validasi -->
+			<center>
+			<form method="request" name="formku">
+				<input type="text" id="name" name="name" onKeyPress="return maxlength(event)" placeholder="Name" required /><br>
+				<input type="email" id="email" name="email" placeholder="Email" required /><br>
+ 				<input type="time" id="jam" name="jam" required /><br>
+				<center>
+							<select name="tujuan" id="tujuan" required>
+								<option value="0"> DESTINATION DEPARTURE</option>
+								<option value="CALIFORNIA"> CALIFORNIA  </option>
+								<option value="DUBAI"> DUBAI  </option>
+								<option value="KOREA"> KOREA  </option>
+								<option value="JAPAN"> JAPAN  </option>
+								<option value="ROME"> ROME  </option>
+								<option value="CANADA"> CANADA  </option>
+							</select>
+					
+					</center>
+				<br>
+				<input type="text" id="jmltiket" name="jmltiket" placeholder="Numbers of Ticket" onKeyUp="angka(this)" maxlength="2" required /><br>
+ 
+				<input type="submit" onClick="return validasi()" value="Kirim">
+			</form>
+			
+			<div id="chatbox"></div>
+			</center>
+		</div>
+	</body>
+</html>
